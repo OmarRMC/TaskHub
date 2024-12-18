@@ -44,8 +44,8 @@ function Header() {
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
-                                <NavLink to="#" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</NavLink>
-                                <NavLink to="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
+                                <NavLink to="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</NavLink>
+                                <NavLink to="/category" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
                                 <NavLink to="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ function Header() {
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <div className="relative ml-3">
                             <div className="flex gap-2 items-center">
-                                <h3 className="text-white font-semibold ">{data?.user.name}</h3>
+                                <h3 className="text-white font-semibold ">{data?.user?.name}</h3>
                                 <button onClick={openUserMenu} type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span className="absolute -inset-1.5"></span>
                                     <span className="sr-only">Open user menu</span>
@@ -73,7 +73,7 @@ function Header() {
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     <NavLink to="/" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</NavLink>
                     <NavLink to="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Task</NavLink>
-                    <NavLink to="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
+                    <NavLink to="/category" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
                     <NavLink to="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
                 </div>
             </div>

@@ -15,7 +15,7 @@ export default function Login() {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
         const data = Object.fromEntries(form.entries()) as { email: string, password: string }
-        const response = await loginApi(data);
+        let response = await loginApi(data);
         if (response.status === 200) {
             login(response.data);
             navigate('/')
