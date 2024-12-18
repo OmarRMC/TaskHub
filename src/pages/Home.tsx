@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { handleGetCookie } from "../utils/cookies";
+import MainLayout from "../layouts/MainLayout";
 
 function Home() {
     const { data , login } = useAuth();
@@ -14,8 +15,7 @@ function Home() {
 
     return (
         <>
-            <p>Pagina principal</p>
-            <h1>{user?.name}</h1>
+            <MainLayout/>
         </>
     );
 }
