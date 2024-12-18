@@ -1,0 +1,8 @@
+
+.alert{
+    transition:all 2s cubic-bezier(1, -0.22, 0.41, 1.81); 
+    transform: translateX(-100%);
+}
+.active{
+    transform: translateX(0%);    
+}

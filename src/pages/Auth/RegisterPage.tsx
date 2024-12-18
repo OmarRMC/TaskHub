@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router";
-import { login as loginApi } from "../../api/authApi";
+import { register as registerApi } from "../../api/authApi";
+import Register from "../../components/auth/Register";
 import { useAuth } from "../../hooks/useAuth";
-import LoginComponent from '../../components/auth/Login'
 import { useState } from "react";
 import Alert from "../../components/UI/AlertOk";
 
-export default function Login() {
+function RegisterPage() {
 
+
+    const [error, setError] = useState<boolean>(false)
     const { login } = useAuth();
-    const [error, setError] = useState<boolean>(false);
     const navigate = useNavigate();
     const handleSubmit = async (event: any) => {
-        setError(false);
+        setError(false)
         event.preventDefault();
         const form = new FormData(event.currentTarget);
-        const data = Object.fromEntries(form.entries()) as { email: string, password: string }
-        const response = await loginApi(data);
+        const data = Object.fromEntries(form.entries())
+        const response = await registerApi(data);
         if (response.status === 200) {
             login(response.data);
             navigate('/')
@@ -25,8 +26,10 @@ export default function Login() {
     }
     return (
         <>
-            <LoginComponent handleSubmit={handleSubmit}></LoginComponent>
-            {error && <Alert title="Error! " description="Invalid credentials"></Alert>}
+            <Register handleSubmit={handleSubmit}></Register>
+            {error && <Alert title="check" description="Error entering your data" />}
         </>
-    )
+    );
 }
+
+export default RegisterPage;
