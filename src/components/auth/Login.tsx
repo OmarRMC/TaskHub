@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 import Input from "../UI/Input";
 
 function Login({ handleSubmit }: any) {
