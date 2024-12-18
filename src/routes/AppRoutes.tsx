@@ -4,6 +4,7 @@ import { AuthProvider } from "../context/AuthContext";
 import Home from "../pages/Home";
 import ProtectedRoute from "../components/route/ProtectedRoute";
 import RegisterPage from "../pages/Auth/RegisterPage";
+import LogoutPage from "../pages/Auth/LogoutPage";
 export default function AppRoutes() {
 
     return (
@@ -12,6 +13,7 @@ export default function AppRoutes() {
                 <Routes>
                     <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />
+                    <Route path="logout" element={<LogoutPage />} />
                     <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                 </Routes>
             </BrowserRouter>

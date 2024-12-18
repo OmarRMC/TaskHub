@@ -10,6 +10,6 @@ export const handleGetCookie = (key: string) => {
 };
 
 
-export const handleRemoveCookie = () => {
-    Cookies.remove("userToken");
+export const handleRemoveCookie = (key: string) => {
+    Cookies.remove(key);
 };
