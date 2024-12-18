@@ -2,9 +2,11 @@ import { NavLink } from "react-router";
 import profile from "../../assets/images/profile.png"
 import task from "../../assets/images/task.png"
 import { MouseEventHandler, useEffect, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 function Header() {
 
     const [showMenu, setShowMenu] = useState<boolean>(false);
+    const { data } = useAuth();
     const openUserMenu = (e: Event): MouseEventHandler<HTMLButtonElement> => {
         e.stopPropagation();
         setShowMenu((e) => !e);
@@ -50,7 +52,8 @@ function Header() {
                     </div>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <div className="relative ml-3">
-                            <div>
+                            <div className="flex gap-2 items-center">
+                                <h3 className="text-white font-semibold ">{data?.user.name}</h3>
                                 <button onClick={openUserMenu} type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span className="absolute -inset-1.5"></span>
                                     <span className="sr-only">Open user menu</span>
@@ -60,7 +63,7 @@ function Header() {
                             <div onClick={openUserMenu} className={`${(showMenu) ? '' : 'hidden'} absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none`} role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex={-1}>
                                 <NavLink to="/profile" className="block px-4 py-2 text-sm text-gray-700" tabIndex={-1} role="menuitem" id="user-menu-item-0">Your Profile</NavLink>
                                 <NavLink to="/" className="block px-4 py-2 text-sm text-gray-700" tabIndex={-1} role="menuitem" id="user-menu-item-1">Settings</NavLink>
-                                <NavLink to="/" className="block px-4 py-2 text-sm text-gray-700" tabIndex={-1} role="menuitem" id="user-menu-item-2">Sign out</NavLink>
+                                <NavLink to="/logout" className="block px-4 py-2 text-sm text-gray-700" tabIndex={-1} role="menuitem" id="user-menu-item-2">Sign out</NavLink>
                             </div>
                         </div>
                     </div>
