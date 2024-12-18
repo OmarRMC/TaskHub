@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useAuth } from "../../hooks/useAuth";
-import { handleGetCookie } from "../../utils/cookies";
+import { useAuth } from "../hooks/useAuth";
+import { handleGetCookie } from "../utils/cookies";
 
 function Home() {
     const { data , login } = useAuth();

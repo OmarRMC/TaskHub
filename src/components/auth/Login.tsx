@@ -1,3 +1,6 @@
+import { Link, NavLink } from "react-router";
+import Input from "../UI/Input";
+
 function Login({ handleSubmit }: any) {
     return (
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -11,19 +14,16 @@ function Login({ handleSubmit }: any) {
                         Sign in to your account
                     </h1>
                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
-                        <div>
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-                        </div>
+                        <Input name="email" type="email" placeholder="example@exa.com" label="Your email" />
+                        <Input name="password" type="password" placeholder="password" label="Your password" />
                         <button type="submit" className="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                             Login
                         </button>
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Dont have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                            Dont have an account yet?
+                            <NavLink to="/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                Sign up
+                            </NavLink>
                         </p>
                     </form>
                 </div>
