@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { ChildrenInterface } from "../../interface/reactInterface";
 import { useEffect } from "react";
 import { handleGetCookie } from "../../utils/cookies";
+import { userInterface } from "../../interface/authInterface";
 
 function ProtectedRoute({ children }: { children: ChildrenInterface }) {
     const { data, login } = useAuth();
@@ -10,9 +11,9 @@ function ProtectedRoute({ children }: { children: ChildrenInterface }) {
     useEffect(() => {
         if (!data) {
             const token = handleGetCookie("token");
-            let user = handleGetCookie("user");
-            if (token && user) {
-                user = JSON.parse(user)
+            let userCookie = handleGetCookie("user");
+            if (token && userCookie) {
+                const user = JSON.parse(userCookie) as userInterface
                 login({ token, user })
             } else {
                 navigate('/login')

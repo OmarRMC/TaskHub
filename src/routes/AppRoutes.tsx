@@ -6,9 +6,11 @@ import ProtectedRoute from "../components/route/ProtectedRoute";
 import RegisterPage from "../pages/Auth/RegisterPage";
 import LogoutPage from "../pages/Auth/LogoutPage";
 import CategoryLayout from "../layouts/CategoryLayout";
+import TagLayout from "../layouts/TagLayout";
 import EditCategory from "../components/category/EditCategory";
 import Category from "../components/category/Category";
 import CreateCategory from "../components/category/createCategory";
+import Tags from "../components/tag/Tags";
 export default function AppRoutes() {
 
     return (
@@ -23,6 +25,9 @@ export default function AppRoutes() {
                         <Route index element={<Category />} />
                         <Route path=":id/edit" element={<EditCategory />} />
                         <Route path="create" element={<CreateCategory />} />
+                    </Route>
+                    <Route path="/tag" element={<ProtectedRoute><TagLayout /></ProtectedRoute>} >
+                        <Route index element={<Tags />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
