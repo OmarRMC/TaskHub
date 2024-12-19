@@ -1,13 +1,13 @@
 import { NavLink } from "react-router";
 import profile from "../../assets/images/profile.png"
 import task from "../../assets/images/task.png"
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 function Header() {
 
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const { data } = useAuth();
-    const openUserMenu = (e: Event): MouseEventHandler<HTMLButtonElement> => {
+    const openUserMenu = (e: Event) => {
         e.stopPropagation();
         setShowMenu((e) => !e);
     }
@@ -46,7 +46,7 @@ function Header() {
                             <div className="flex space-x-4">
                                 <NavLink to="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</NavLink>
                                 <NavLink to="/category" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
-                                <NavLink to="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
+                                <NavLink to="/tag" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ function Header() {
                     <NavLink to="/" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</NavLink>
                     <NavLink to="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Task</NavLink>
                     <NavLink to="/category" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</NavLink>
-                    <NavLink to="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
+                    <NavLink to="/tag" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Tag</NavLink>
                 </div>
             </div>
         </nav>
