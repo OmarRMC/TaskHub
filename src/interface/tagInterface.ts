@@ -4,3 +4,4 @@ export interface tagType {
 }
 
 export type tagWithoutId = Omit<tagType, "id">;
+export type tagIdInterface = Omit<tagType, "name">;
