@@ -3,9 +3,11 @@ import { updateCategory } from "../../api/categoryApi";
 import { useAuth } from "../../hooks/useAuth";
 import FormCategory from "./FormCategory";
 import { categoryType } from "../../interface/categoryInterface";
+import { useState } from "react";
 function EditCategory() {
     const { id } = useParams();
     const { data } = useAuth()
+    
 
     const navigate = useNavigate();
     const handleSubmit = async (event: any) => {
