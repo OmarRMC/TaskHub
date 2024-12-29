@@ -6,6 +6,7 @@ import { categoryType } from "../interface/categoryInterface";
 
 export function fetchCategory() {
     const [categories, setCategories] = useState<categoryType[]>([]);
+    const [loading , setLoading] = useState<boolean>(true)
     const [links, setLinks] = useState([]); 
     const token = handleGetCookie('token');
 
@@ -17,10 +18,12 @@ export function fetchCategory() {
             const {data, ...links} = datos  ; 
             setLinks(links)
             setCategories(data)
+        }).finally(()=>{
+            setLoading(false); 
         });
     }, [])
 
-    return {categories,changeCatagories, links };
+    return {categories,changeCatagories, links, loading  };
 }
 
 export function useCategory() {
